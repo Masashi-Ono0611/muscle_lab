@@ -1,0 +1,33 @@
+{
+  "@@locale":"en",
+
+  "title":"Muscle Lab",
+  "mail_address": "E-mail address",
+  "password":"Password",
+  "new_registration":"New registration",
+  "login_w_email":"Login with E-mail",
+
+  "slide_delete":"Delete",
+
+  "add_menu_title":"Add Menu",
+  "add_menu_name":"Menu Name",
+  "add_menu_contents":"Menu Contents",
+  "add_menu_videoURL":"VideoURL",
+  "add_menu_button":"Add",
+
+  "add_account_title":"Add Account",
+  "add_account_name":"Account Name",
+  "add_account_uid":"Account ID",
+  "add_account_intro":"Self Introduction",
+  "add_account_mail_address": "E-mail address",
+  "add_account_password":"Password",
+  "add_account_button_update":"Add",
+
+  "edit_account_title":"Edit Account",
+  "edit_account_name":"Account Name",
+  "edit_account_uid":"Account ID",
+  "edit_account_intro":"Self Introduction",
+  "edit_account_button_update":"Update",
+  "edit_account_button_logout":"Logout",
+  "edit_account_button_delete":"Delete"
+}
