@@ -1,0 +1,33 @@
+{
+  "@@locale":"ja",
+
+  "title":"Muscle Lab",
+  "mail_address": "メールアドレス",
+  "password":"パスワード",
+  "new_registration":"新規登録",
+  "login_w_email":"Emailでログイン",
+
+  "slide_delete":"削除",
+
+  "add_menu_title":"メニュー登録",
+  "add_menu_name":"メニュー名",
+  "add_menu_contents":"メニュー内容",
+  "add_menu_videoURL":"参考動画URL",
+  "add_menu_button":"追加",
+
+  "add_account_title":"アカウント登録",
+  "add_account_name":"アカウント名",
+  "add_account_uid":"アカウントID",
+  "add_account_intro":"自己紹介",
+  "add_account_mail_address": "メールアドレス",
+  "add_account_password":"パスワード",
+  "add_account_button_update":"アカウント登録",
+
+  "edit_account_title":"アカウント編集",
+  "edit_account_name":"アカウント名",
+  "edit_account_uid":"アカウントID",
+  "edit_account_intro":"自己紹介",
+  "edit_account_button_update":"アカウント更新",
+  "edit_account_button_logout":"ログアウト",
+  "edit_account_button_delete":"アカウント削除"
+}
