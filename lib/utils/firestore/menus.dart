@@ -7,7 +7,6 @@ class MenuFirestore{
   static final CollectionReference menus = _firestoreInstance.collection('menus');
 
   static Future<dynamic> addMenu(Menu newMenu) async{
-
     try{
       final CollectionReference _userMenus = _firestoreInstance.collection('users')
           .doc(newMenu.menuAccountId).collection('my_menus');
@@ -72,12 +71,20 @@ class MenuFirestore{
   }
   static Future<dynamic> deleteMenuAll(String accountId)
     async{
-      final CollectionReference _userMenus
-      = FirebaseFirestore.instance.collection('users').doc(accountId).collection('my_menus');
-      var snapshot = await _userMenus.get();
+/*      final CollectionReference _userMenus
+      = FirebaseFirestore.instance.collection('users').doc(accountId).collection('my_menus');*/
+
+      var snapshot = await FirebaseFirestore.instance.collection('users').doc(accountId).collection('my_menus').get();
       snapshot.docs.forEach((doc) async{
+        print(doc.id);
+
         await menus.doc(doc.id).delete();
-        _userMenus.doc(doc.id).delete();
+        // ユーザーに紐づくfirestore直下のmenus情報を順に削除
+
+        await FirebaseFirestore.instance.collection('users').doc(accountId).collection('my_posts').doc(doc.id).delete();
+        // my_postsの中のドキュメントを順に削除する
+        // ＊コレクション内のドキュメントが全て削除されたらmy_postsは自動的に消える
+        // 参照：https://zenn.dev/mamushi/articles/49c4cb9141b415
       });
     }
 }

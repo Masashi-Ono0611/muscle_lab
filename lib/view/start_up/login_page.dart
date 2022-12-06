@@ -2,6 +2,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:sign_in_button/sign_in_button.dart';
 
 import '../../main.dart';
 import '../../utils/authentication.dart';
@@ -61,7 +63,6 @@ class LoginPageState extends State<LoginPage> {
                     controller: passController,
                     cursorColor: kColorPrimary,
                     decoration: InputDecoration(
-                      // hintText: AppLocalizations.of(context).password,
                       labelText: AppLocalizations.of(context).password,
                       labelStyle: const TextStyle(
                         color: Colors.grey,
@@ -88,28 +89,32 @@ class LoginPageState extends State<LoginPage> {
                   )
               ),
               const SizedBox(height: 40),
-              ElevatedButton(
-                  onPressed:() async{
-                    var result = await Authentication.emailSignIn(email: emailController.text, pass: passController.text);
-                    if(result is UserCredential) {
-                      var _result = await UserFirestore.getUser(result.user!.uid);
-                      if (_result == true) {
-                        Navigator.pushReplacement(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => MenuListPage(),
-                              fullscreenDialog: true,
-                            )
-                        );
+              SizedBox(
+                width: 200,
+                height: 30,
+                child: ElevatedButton(
+                    onPressed:() async{
+                      var result = await Authentication.emailSignIn(email: emailController.text, pass: passController.text);
+                      if(result is UserCredential) {
+                        var _result = await UserFirestore.getUser(result.user!.uid);
+                        if (_result == true) {
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => MenuListPage(),
+                                fullscreenDialog: true,
+                              )
+                          );
+                        }
                       }
-                    }
-                  },
-                  style: ElevatedButton.styleFrom(
-                    primary: kColorPrimary, // background
-                    onPrimary: Colors.white,
-                    elevation: 2,// foreground
-                  ),
-                  child: Text(AppLocalizations.of(context).login_w_email),
+                    },
+                    style: ElevatedButton.styleFrom(
+                      primary: kColorPrimary, // background
+                      onPrimary: Colors.white,
+                      elevation: 2,// foreground
+                    ),
+                    child: Text(AppLocalizations.of(context).login_w_email),
+                ),
               ),
               const SizedBox(height:20),
               RichText(
@@ -130,6 +135,30 @@ class LoginPageState extends State<LoginPage> {
                           }
                       ),
                     ]
+                ),
+              ),
+              const SizedBox(height:20),
+              SizedBox(
+                width: 200,
+                height: 30,
+                child: SignInButton(
+                    Buttons.google,
+                    elevation: 2,
+                    onPressed: () async {
+                      var result = await Authentication.signInWithGoogle();
+                      if(result is UserCredential) {
+                        var _result = await UserFirestore.getUser(result.user!.uid);
+                        if (_result == true) {
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => MenuListPage(),
+                                fullscreenDialog: true,
+                              )
+                          );
+                        }
+                      }
+                    }
                 ),
               ),
             ],

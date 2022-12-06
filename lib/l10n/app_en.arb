@@ -15,13 +15,14 @@
   "add_menu_videoURL":"VideoURL",
   "add_menu_button":"Add",
 
-  "add_account_title":"Add Account",
+  "add_account_title":"Account Registration",
   "add_account_name":"Account Name",
   "add_account_uid":"Account ID",
   "add_account_intro":"Self Introduction",
   "add_account_mail_address": "E-mail address",
   "add_account_password":"Password",
-  "add_account_button_update":"Add",
+  "add_account_button_update":"Registration",
+  "add_account_button_google":"Registration with Google",
 
   "edit_account_title":"Edit Account",
   "edit_account_name":"Account Name",

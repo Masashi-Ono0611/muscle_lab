@@ -1,7 +1,7 @@
 import 'dart:io';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:muscle_lab_3/utils/firestore/menus.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import '../../main.dart';
@@ -23,8 +23,8 @@ class _EditAccountPageState extends State<EditAccountPage> {
   TextEditingController userIdController = TextEditingController();
   TextEditingController selfIntroductionController = TextEditingController();
 
-  File? image;
 
+  File? image;
   ImageProvider getImage(){
     if(image == null) {
       return NetworkImage(myAccount.imagePath);
@@ -168,8 +168,8 @@ class _EditAccountPageState extends State<EditAccountPage> {
                     style: TextButton.styleFrom(
                       primary: kColorPrimary,
                     ),
-                    onPressed:(){
-                      Authentication.signOut();
+                    onPressed:() async {
+                      await FirebaseAuth.instance.signOut();
                       while(Navigator.canPop(context)){
                         Navigator.pop(context);
                       }
@@ -199,10 +199,11 @@ class _EditAccountPageState extends State<EditAccountPage> {
                               ),
                               TextButton(
                                   child: Text("Yes"),
-                                  onPressed: ()
+                                  onPressed:  () async
                                   {
-                                    UserFirestore.deleteUser(myAccount.id);
-                                    Authentication.deleteAuth();
+                                    // print(FirebaseAuth.instance.currentUser?.uid); // チェック用
+                                    await UserFirestore.deleteUser(myAccount.id);
+                                    await Authentication.deleteAuth();
                                     while(Navigator.canPop(context)){
                                       Navigator.pop(context);
                                     }

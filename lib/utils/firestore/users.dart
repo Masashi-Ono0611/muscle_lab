@@ -90,8 +90,8 @@ class UserFirestore{
   }
   static Future<dynamic> deleteUser(String accountId)
     async{
-      await users.doc(accountId).delete();
-      MenuFirestore.deleteMenuAll(accountId);
+      await MenuFirestore.deleteMenuAll(accountId);
+      users.doc(accountId).delete();
       }
 }
 

@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "693706528458",
+    "project_id": "muscle-lab-3",
+    "storage_bucket": "muscle-lab-3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:693706528458:android:acc1528e453be035240633",
+        "android_client_info": {
+          "package_name": "com.example.muscle_lab_3"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "693706528458-2h3f3oc1m5qqonn7v5h1om9va52dmkg0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.muscle_lab_3",
+            "certificate_hash": "3d21871c6bb810b488287b316ecacabb132ed85f"
+          }
+        },
+        {
+          "client_id": "693706528458-hn61rqssbkdkhqru22rf9sah1li166ps.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDBqlaIsIryicBXoMzSM2zpP5adKnTIz2c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "693706528458-hn61rqssbkdkhqru22rf9sah1li166ps.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "693706528458-f1jtlc02g7rcpbo7d38hnpstifff6a26.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "muscleLab3.sample"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
